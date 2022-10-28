@@ -12,7 +12,6 @@ import java.util.stream.Collectors;
 public class MermaidFormatter {
 
   
-
      public String shape(InternalGraphRepresentation graphRepresentation) {
         return MermaidUmlType(graphRepresentation.getUmlType()
             .getListOfClass()) + MermaidUmlRelation(graphRepresentation.getUmlRelation()
@@ -23,18 +22,18 @@ public class MermaidFormatter {
         String word = "classDiagram\n";
         for (Class classe : allClasses) {
             word += "class " + classe.getSimpleName();
-            String fieldString = MermaidFieldRepresentation(classe);
-            String methodString = MermaidMethodRepresentation(classe);
-            boolean condition = !(fieldString + methodString).equals("") || Modifier.isInterface(classe.getModifiers());
-            if (condition) syntax +=" {\n";
+          
+           
+          
+            
             if (Modifier.isInterface(classe.getModifiers())) {
                 
-		 word +=" <<interface>>\n;
-		 condition = true;
+		 word +=" <<interface>>\n";
+		
             }
-	    word += fieldString;
-	    word += methodString;
-	    if (condition) word +="}";
+
+	   
+	    
             word = word + "\n";
         }
         return word;
@@ -47,7 +46,7 @@ public class MermaidFormatter {
             word = word + relation[0];
             if (relation[2].equals("implements"))
                 word += " <|.. ";
-            else word += " <|-- ";
+           else word += " <|-- ";
             word += relation[1] + " : " + relation[2];
             word += "\n";
         }
