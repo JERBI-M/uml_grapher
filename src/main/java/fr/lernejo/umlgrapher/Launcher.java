@@ -14,7 +14,7 @@ package fr.lernejo.umlgrapher;
     @Override
     public Integer call() {
         UmlGraph umlgraph = new UmlGraph(allClasses);
-        System.out.println(umlgraph.as(graphtype));
+        System.out.println(umlgraph.as(null));
         return 0;
     }
 

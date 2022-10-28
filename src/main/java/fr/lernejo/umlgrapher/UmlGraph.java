@@ -1,4 +1,5 @@
 package fr.lernejo.umlgrapher;
+import java.lang.reflect.Modifier;
 
 public class UmlGraph {
     
@@ -12,10 +13,13 @@ public class UmlGraph {
 	String out ="";
 	if(graphType == GraphType.Mermaid) 
 	{ 
-	   
+	try{   
            InternalGraphRepresentation graphiq = new InternalGraphRepresentation(allClasses);
            out = new MermaidFormatter().shape(graphiq);
-        
+	}catch (RuntimeException e){
+           System.out.println("There is an error :" +e.getClass() + "-" + e.getMessage()); 
+	}
+
               
         }
 	return out;
