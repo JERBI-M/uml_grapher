@@ -12,15 +12,15 @@ public class UmlGraph {
 	String out ="";
 	if(graphType == GraphType.Mermaid) 
 	{ 
-	   return """
-        classDiagram
-        class Machin {
-            <<interface>>  
+	   
+           InternalGraphRepresentation graphiq = new InternalGraphRepresentation(allClasses);
+           out = new MermaidFormatter().shape(graphiq);
+        
+              
         }
-        """;
+	return out;
+        
         }
-
-        return out;
 
     }
-}
+
