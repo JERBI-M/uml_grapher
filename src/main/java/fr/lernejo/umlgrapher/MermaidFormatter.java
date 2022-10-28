@@ -23,9 +23,18 @@ public class MermaidFormatter {
         String word = "classDiagram\n";
         for (Class classe : allClasses) {
             word += "class " + classe.getSimpleName();
+            String fieldString = MermaidFieldRepresentation(classe);
+            String methodString = MermaidMethodRepresentation(classe);
+            boolean condition = !(fieldString + methodString).equals("") || Modifier.isInterface(classe.getModifiers());
+            if (condition) syntax +=" {\n";
             if (Modifier.isInterface(classe.getModifiers())) {
-                word +=" {\n    <<interface>>\n}";
+                
+		 word +=" <<interface>>\n;
+		 condition = true;
             }
+	    word += fieldString;
+	    word += methodString;
+	    if (condition) word +="}";
             word = word + "\n";
         }
         return word;
