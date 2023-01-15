@@ -11,8 +11,7 @@ class UmlGraphTests {
     @Test
     void empty_interface_with_no_relation() {
 
-	ArrayList<Class> classes = new ArrayList<>();
-	classes.add(Machin.class);
+	Class[] classes = new Class[]{Machin.class};
 	UmlGraph graph = new UmlGraph(classes);
 
         String output = graph.as(GraphType.Mermaid);

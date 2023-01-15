@@ -8,7 +8,7 @@ import java.util.concurrent.Callable;
 
 public class Launcher implements Callable<Integer> {
     @Option(names = {"-c", "--classes"}, description = "Permet de renseigner les classes d'ou faire partir l'analyse", required = true)
-    private ArrayList<Class> classes;
+    private Class [] classes;
 
     @Option(names = {"-g", "--graph-type"}, description = "Permet de selectionner le type de graph que l'on souhaite en sortie")
     private final GraphType graphType = GraphType.Mermaid;
