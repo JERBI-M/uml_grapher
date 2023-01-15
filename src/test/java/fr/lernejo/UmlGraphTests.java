@@ -1,4 +1,5 @@
 package fr.lernejo;
+
 import fr.lernejo.umlgrapher.GraphType;
 import fr.lernejo.umlgrapher.UmlGraph;
 import org.assertj.core.api.Assertions;
@@ -22,11 +23,3 @@ class UmlGraphTests {
     interface Machin {
     }
 }
-
-
-
-
-
-
-
-
