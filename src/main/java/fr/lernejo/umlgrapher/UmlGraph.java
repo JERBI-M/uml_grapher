@@ -13,12 +13,14 @@ public class UmlGraph {
     }
 
     public String as(GraphType graphType) {
-        String result = "";
-        if (graphType == GraphType.Mermaid) {
-            InternalGraphRepresentation graph = new InternalGraphRepresentation(classes);
-            result = new MermaidFormatter().format(graph);
+        switch (graphType) {
+            case Mermaid:
+                InternalGraphRepresentation graph = new InternalGraphRepresentation(classes);
+                return new MermaidFormatter().format(graph);
+            default:
+                throw new IllegalArgumentException();
         }
-        return result;
+        
     }
 }
 
