@@ -16,7 +16,7 @@ public class Launcher implements Callable<Integer> {
     @Override
     public Integer call() {
         UmlGraph graph = new UmlGraph(classes);
-        String output = graph.as(graphType);
+        String output = graph.as(null);
         System.out.println(output);
         return 0;
     }
